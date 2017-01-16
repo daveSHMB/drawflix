@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %} - Your Drawings{% endblock %}
+{% block body_block %}
+
+<br /><br />
+
+<div>
+  {% if user_drawings %}
+      
+
+      {% for d in user_drawings %}
+          <img src="{{ d.image }}" alt="no image"> <br />
+          <strong class="like_count" id="{{d.id}}">{{ d.likes }}</strong> likes
+          {% if user.is_authenticated %}
+              <button id="like" data-catid="{{d.id}}" class="btn btn-primary" type="button">
+                <span class="glyphicon glyphicon-thumbs-up"></span>
+                Like</button>
+      		  <br />
+          {% endif %}
+
+          <p>{{d.film}} <br /> Created by
+        {% if d.user != None %}
+          {{d.user}}
+        {% else %}
+          anonymous
+        {% endif %}
+      </p>
+
+      {% endfor %}
+		
+  {% else %}
+      <li> <strong >There are no drawings present.</strong></li>
+
+      
+  {% endif %}
+</div>
+
+{% endblock %}

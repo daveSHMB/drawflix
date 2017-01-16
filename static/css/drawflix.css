@@ -1,0 +1,124 @@
+/*!
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+/* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
+
+
+.full {
+    background: url("../images/Strokes-Paint-Wallpaper-Downloads-web.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+.container-fluid {
+    height: 100%;
+}
+
+
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+body {
+  margin: 3%;
+    font-family: 'Ubuntu', sans-serif !important;
+    background: transparent;
+}
+
+
+.navbar {
+    height: 60px !important;
+    border: 0px !important;
+
+    background-size: cover;
+    opacity: 0.6;
+}
+
+
+.row {
+    height: 100vh;
+    margin: 0 auto;
+}
+
+
+.board {
+    width: 500px;
+    height: 300px;
+}
+
+.drawing_board {
+    margin: 0 auto;
+    width: 700px;
+    height: 300px;
+}
+
+.form-signin {
+    margin: 25px;
+}
+#test_board {
+    margin: 0 auto;
+  width: 650px;
+  height: 400px;
+}
+
+#finalise {
+    float: right;
+}
+
+#film_search {
+    float: left;
+}
+#submit_search {
+    float: left;
+    margin-left: 1%;
+}
+
+#logo {
+  font-family: 'Chelsea Market', cursive;
+  color: white;
+  font-size: 5vh;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    border:3px solid #021a40;
+}
+.navbar {
+  font-size: 16px;
+}
+
+.navbar-inverse .navbar-nav>li>a.highlights {
+  color: white;
+}
+
+#options {
+  width: 250px;
+}
+
+.navbar-collapse.collapsing {
+	border-top: transparent;
+	background-color: #A94260;
+	width: 30vw; 
+}
+
+.navbar-collapse.collapse.in {
+	border-top: transparent;
+	background-color: #A94260;
+	width: 30vw; 
+}
+
+.navbar-brand {
+    float: left;
+    height: 6.9vh;
+}
+
+
+/*# sourceMappingURL=bootstrap.css.map */

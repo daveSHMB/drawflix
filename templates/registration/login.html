@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+
+    <div class="login-form col-xs-8 col-md-offset-4 col-xs-4 col-ms-4 col-md-4 col-lg-4">
+        <form class="form-signin " method="post" action=".">
+            {% csrf_token %}
+            <input class="form-control" placeholder="Username" id="id_username" maxlength="254" name="username" type="text" required autofocus=""/>
+            <input type="password" class="form-control" placeholder="Password" id="id_password" name="password"  required />
+            <button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit" >Log in</button>
+        </form>
+    </div>
+
+{% endblock %}

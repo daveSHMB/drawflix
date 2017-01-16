@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+<!-- THIS PAGE IS NEEDED TO ADD THE DRAWING TO DB, BUT NEVER SEEN -->
+{% block title %} AddDrawing {% endblock %}
+
+{% block body_block %}
+<h1>Add a Drawing</h1>
+
+<form id="drawing_form" method="post" action="/drawflix/add_drawing/">
+
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields %}
+        {{ hidden }}
+    {% endfor %}
+
+    {% for field in form.visible_fields %}
+        {{ field.errors }}
+        {{ field.help_text }}
+        {{ field }}
+    {% endfor %}
+
+    <input type="submit" name="submit" value="Create Drawing" />
+</form>
+{% endblock %}

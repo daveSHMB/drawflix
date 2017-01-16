@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %} - About {% endblock %}
+
+{% block body_block %}
+<br /><br />
+<div>
+  <p>
+    Drawflix is web application desgined in Django that allows users
+    to create MS paint style drawings of their favourite films
+    and compete against each other for the most likes.
+  </p>
+
+  <p>
+    The film list has been sourced from the
+    <a href="http://www.omdbapi.com" >Open Movie Database</a>
+  </p>
+  <p>
+    The drawing board base code was sourced from
+    <a href="http://leimi.github.io/drawingboard.js/" >drawingboard.js</a>
+  </p>
+
+
+  <p><img width="600" height="500" src="{% static "images/df.jpg" %}" alt="team" /></p>
+
+</div>
+
+{% endblock %}

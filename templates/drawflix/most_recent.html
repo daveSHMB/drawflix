@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %} - Most Recent{% endblock %}
+
+{% block body_block %}
+
+<br /><br />
+
+{% if recent_drawings %}
+            {% for d in recent_drawings %}
+                <div class="col-md-4">
+                    <img src="{{ d.image }}" alt="no image"> <br />
+                    <strong class="like_count" id="{{d.id}}">{{ d.likes }}</strong> likes
+                    {% if user.is_authenticated %}
+                        <button id="like" data-catid="{{d.id}}" class="btn btn-primary" type="button">
+                        <span class="glyphicon glyphicon-thumbs-up"></span>
+                        Like</button>
+                    {% endif %}
+                    <p>{{d.film}} <br />
+                    Created by
+                    {% if d.user != None %}
+                      {{d.user}}
+                    {% else %}
+                        anonymous
+                    {% endif %}
+                    </p>
+                </div>
+            {% endfor %}
+{% else %}
+    <li> <strong >There are no drawings present.</strong></li>
+{% endif %}
+{% endblock %}

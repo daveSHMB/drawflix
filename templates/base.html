@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html class="full" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Use Bootstrap CDN to add Font Awesome for twitter favicon etc. -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <title>Drawflix {% block title %}Home{% endblock %}</title>
+
+    <link href={% static "css/bootstrap.min.css" %} rel="stylesheet">
+
+    <!-- Custom CSS -->
+     <link href={% static "css/drawflix.css" %} rel="stylesheet">
+	<link rel="stylesheet" href="../../static/css/drawingboard.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Chelsea+Market">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu:500">
+	
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid" id="navbar-all">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'index' %}" id="logo">Drawflix</a>
+        </div>
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav navbar-right">
+                <li class="nav-button"><a href="{% url 'index' %}">Draw</a></li>
+                <li class="nav-button"><a href="{% url 'trending' %}">Trending</a></li>
+                <li class="nav-button"><a href="{% url 'most_recent' %}">Most Recent</a></li>
+                <li class="nav-button"><a href="{% url 'hall_of_fame' %}">Hall of Fame</a></li>
+                <li class="nav-button"><a href="{% url 'archive' %}">Archive</a></li>
+
+                    {% if user.is_authenticated %}
+                      <li class="nav-button"><a href="{% url 'user_drawings' %}">MyFlix</a></li>
+                      <li class="nav-button"><a href="{% url 'auth_logout' %}?next={% url 'index' %}">Logout</a></li>
+                    {% else %}
+                      <li class="nav-button"><a href="{% url 'auth_login' %}">Login</a></li>
+                      <li class="nav-button"><a href="{% url 'registration_register' %}">Register</a></li>
+                    {% endif %}
+
+
+                    <li class="nav-button"><a href="{% url 'about' %}">About</a></li>
+              </ul>
+
+        </div>
+
+      </div>
+    </div>
+         <div id="fade_in" hidden>
+            <div class="container-fluid text-center">
+                <div class="row text-center">
+                  <br /><br />
+                    {% block body_block %}
+                    {% endblock %}
+                </div>
+            </div>
+         </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- jQuery -->
+    <script src={% static "js/jquery.js" %}></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src={% static "js/bootstrap.min.js" %}></script>
+	<script src="{% static "js/drawingboard.js" %}"></script>
+    <script src="{% static "js/drawflix-ajax.js" %}"></script>
+	<script src="{% static "js/drawflix-jquery.js" %}"></script>
+
+  </body>
+
+    
+   
+
+</html>

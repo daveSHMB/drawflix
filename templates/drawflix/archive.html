@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %} - Archive {% endblock %}
+
+{% block body_block %}
+
+<br /><br />
+
+{% if drawings %}
+    {% for d in drawings %}
+        <div class="col-md-4">
+            <img src="{{ d.image }}" alt="no image"> <br />
+            <strong class="like_count" id="{{d.id}}">{{ d.likes }}</strong> likes
+            {% if user.is_authenticated %}
+                <button id="like" data-catid="{{d.id}}" class="btn btn-primary" type="button">
+                <span class="glyphicon glyphicon-thumbs-up"></span>
+                Like</button>
+            {% endif %}
+            <p>{{d.film}} <br />
+            Created by
+            {% if d.user != None %}
+              {{d.user}}
+            {% else %}
+                anonymous
+            {% endif %}
+            </p>
+        </div>
+    {% endfor %}
+
+    <br />
+    <br />
+    <div class="pagination col-md-12">
+        <span class="step-links">
+            {% if drawings.has_previous %}
+                <a href="?page={{ drawings.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ drawings.number }} of {{ drawings.paginator.num_pages }}
+            </span>
+
+            {% if drawings.has_next %}
+                <a href="?page={{ drawings.next_page_number }}">next</a>
+            {% endif %}
+        </span>
+    </div>
+
+{% else %}
+    <li> <strong >There are no drawings present.</strong></li>
+
+    </ul>
+{% endif %}
+
+
+{% endblock %}
